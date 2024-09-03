@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        input[type="text"], input[type="password"] {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 15px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button:hover {
+            background-color: #3794f7;
+        }
+        p {
+            color: rgb(0, 0, 0);
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+                width: 90%;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin-bottom: 15px;
+            }
+            button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <p>{{ error }}</p>
+       <p>Dont have an Account? <a href="{% url 'signup' %}">Sign Up</a></p>
+    </div>
+</body>
+</html>

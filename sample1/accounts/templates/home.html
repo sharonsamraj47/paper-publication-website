@@ -1,0 +1,138 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #343a40;
+            background-color: #f8f9fa;
+        }
+        .status-pending {
+            color: #ffc107;
+        }
+        .status-accepted {
+            color: #28a745;
+        }
+        .status-rejected {
+            color: #dc3545;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 16px;
+        }
+        .comment-popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        .comment-popup h3 {
+            margin-top: 0;
+        }
+        .comment-popup .close-btn {
+            cursor: pointer;
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <a href="{% url 'login' %}" class="btn btn-danger">Logout</a>
+        <a href="{% url 'home2' %}" class="btn btn-primary">Back to Home</a> 
+        <a href="{% url 'paper_submission' %}" class="btn btn-success">Add Paper</a>
+
+        <h2>Your Uploaded Files</h2>
+
+        <div class="search-container">
+            <input type="text" id="search-input" class="search-input" onkeyup="filterTable()" placeholder="Search for files..">
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Serial No.</th>
+                    <th>Paper Title</th>
+                    <th>Domain Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Status</th>
+                    <th>View</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody id="files-table">
+                {% for file in files %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ file.title }}</td>
+                        <td>{{ file.domain }}</td>
+                        <td>{{ file.uploaded_at|date:"Y-m-d" }}</td>
+                        <td>{{ file.uploaded_at|date:"H:i:s" }}</td>
+                        <td class="{% if file.uploaded_to_home2 is True %}status-accepted{% elif file.uploaded_to_home2 is False %}status-rejected{% else %}status-pending{% endif %}">
+                            {% if file.uploaded_to_home2 is True %}Accepted{% elif file.uploaded_to_home2 is False %}Rejected{% else %}Pending{% endif %}
+                        </td>
+                        <td><a href="{{ file.file.url }}" target="_blank" class="btn btn-info">View</a></td>
+                        <td><button class="btn btn-secondary" onclick="showCommentPopup('{{ file.reviewer_comment }}')">Comments</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="comment-popup" class="comment-popup">
+            <h3>Reviewer Comments</h3>
+            <p id="comment-content"></p>
+            <button class="btn btn-danger close-btn" onclick="closeCommentPopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function filterTable() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("search-input");
+            filter = input.value.toLowerCase();
+            table = document.getElementById("files-table");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                tr[i].style.display = "none";
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toLowerCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        function showCommentPopup(comment) {
+            document.getElementById('comment-content').innerText = comment;
+            document.getElementById('comment-popup').style.display = 'block';
+        }
+
+        function closeCommentPopup() {
+            document.getElementById('comment-popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

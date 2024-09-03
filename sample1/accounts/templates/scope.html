@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"/>
+  <title>Journal Project</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/bbba08e2b7.js" crossorigin="anonymous"></script>
+  <style>
+
+/* Global styles */
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-size:14px;
+	color:white;
+  max-width:1920px;
+  margin:0 auto;
+}
+.header{
+  background-color: black;
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px 10px 0px;
+}
+.list-main{
+  margin-left: 50px;
+}
+.list{
+  list-style-type: none;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
+}
+.list-items{
+  padding: 10px 15px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+}
+.nav-button-1{
+  text-decoration: none;
+  padding: 12px 35px;
+  background-color: rgb(79, 79, 234);
+  border-radius: 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.about-block{
+  text-decoration: none;
+}
+.nav-button-2{
+  text-decoration: none;
+  padding: 12px 30px;
+  background-color: white;
+  color: black;
+  margin-left: 10px;
+  margin-right:40px;
+  font-weight: 700;
+  border-radius: 30px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.nav-button-3{
+  padding: 12px 15px;
+  border-radius: 30px;
+  margin-left: 20px;
+  color: white;
+  display: none;
+}
+.logo{
+  border-radius: 100%;
+}
+.nav-2{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 0px;
+  display: none;
+}
+.list-2{
+  list-style-type: none;
+}
+.list-3{
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.list-2-items{
+  text-align: center;
+  padding: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.list-4-items{
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+  padding: 12px 30px;
+  background-color: white;
+  color: black;
+  border-radius: 30px;
+}
+.list-3-items{
+  text-align: center;
+  padding: 10px;
+  font-weight: 500;
+  padding: 12px 35px;
+  background-color: rgb(79, 79, 234);
+  border-radius: 30px;
+  color: white;
+}
+.list-5-items{
+  padding: 12px 12px;
+  background-color: red;
+  color: black;
+  border-radius: 30px;
+}
+.login-section{
+  width: 1400px !important;
+  display: flex;
+}
+.login-list{
+  left: 30%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 50px 50px;
+  display: flex;
+  position: fixed;
+  flex-direction: row;
+  justify-content: center;
+}
+@media screen and (max-width:600px) {
+  .list-main{
+    display: none !important;
+  }
+  .logo{
+    margin: 10px 5px;
+  }
+  .logo-2{
+    margin-top: 25px;
+  }
+  .nav-button-3{
+    padding: 12px 0px;
+    border-radius: 30px;
+    margin-right: 36px !important;
+    color: white;
+    display: block !important;
+  }
+  .list-2{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+  }
+  .list-2-items{
+    text-decoration: none;
+    color: white;
+  }
+  .nav-button-1{
+    display: none;
+  }
+  .nav-button-2{
+    display: none;
+  }
+  .nav{
+    justify-content: space-between !important;
+    padding: 0;
+  }
+  .side-nav-button-list{
+    display: inline-flex;
+  }
+  .sub-header-items{
+    display:none;
+  }
+  .banner-title{
+    font-size: 20px !important;
+    text-align: center !important;
+    font-weight: 900 !important;
+    word-spacing: 6px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.94px !important;
+    width: 98% !important;
+    color: white !important;
+  }
+  .banner-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .banner-content{
+    margin:10px 0px ;
+  }
+  .row , .row-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+  .row-3{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around !important;
+    width: 400px !important;
+  }
+  .list-2-items{
+    text-align: center;
+    padding: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .text-justify{
+    margin-top: 2px !important;
+  }
+  .footer-links{
+    margin-top: 2px !important;
+  }
+  .row-copy{
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+  }
+}
+.banner{
+  /* background-image: url("Images/Background/blue.jpg");
+  background-size: cover; */
+  background-color: #00aced;
+  position: relative;
+}
+.banner-content-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 300px;
+}
+.banner-title{
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 37px;
+  word-spacing: 12px;
+  text-transform: uppercase;
+  letter-spacing: -2.06px;
+  text-align: center;
+  width: 73%;
+  color: white !important;
+}
+.sub-header{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(216, 213, 213);
+  padding: 0px 40px 0px 0px;
+}
+.sub-header-list{
+  display: flex;
+  justify-content: center;
+}
+.sub-header-items{
+  list-style-type: none;
+  color: black;
+  padding: 20px 5px;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.sub-list-2-items{
+  color: black;
+}
+.sub-1-nav{
+  background-color: rgb(216, 213, 213);
+  display: none;
+}
+.sub-1-lists{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sub-list-2-items{
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.banner-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 50px 10px;
+}
+.banner-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  border: 1px solid black;
+  width: 300px;
+  height: 370px;
+  border-radius: 10px;  
+  margin:10px 0px ;
+  overflow: hidden;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.banner-content-1>h3{
+  color: black;
+}
+.banner-content-1>p{
+  color: black;
+}
+.banner-image{
+  border-radius: 10px;
+}
+.banner-content-1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.banner-button{
+  padding: 10px;
+  background-color: rgb(61, 61, 61);
+  border-radius: 5px;
+}
+.row{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.row-3{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 1200px;
+}
+.row-2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-justify{
+  margin-top: 20px;
+  width: 400px;
+  height: 150px;
+}
+.footer-links{
+margin-top: 20px;
+align-items: center;
+display: flex;
+flex-direction: column;
+}
+.row-copy{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding-top: 50px;
+}
+.footer-sub-list-2-items{
+  color: #737373;
+}
+.site-footer
+{
+  background-color:#26272b;
+  padding:45px 0 20px;
+  font-size:15px;
+  line-height:24px;
+  color:#737373;
+}
+.site-footer hr
+{
+  border-top-color:#bbb;
+  opacity:0.5
+}
+.site-footer hr.small
+{
+  margin:20px 0
+}
+.site-footer h6
+{
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+}
+.site-footer a
+{
+  color:#737373;
+}
+.site-footer a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links
+{
+  padding-left:0;
+  list-style:none
+}
+.footer-links li
+{
+  display:block
+}
+.footer-links a
+{
+  color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+  color:#3366cc;
+  text-decoration:none;
+}
+.footer-links.inline li
+{
+  display:inline-block
+}
+.site-footer .social-icons
+{
+  text-align:right
+}
+.site-footer .social-icons a
+{
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+}
+.copyright-text
+{
+  margin:0
+}
+@media (max-width:991px)
+{
+  .site-footer [class^=col-]
+  {
+    margin-bottom:30px
+  }
+}
+@media (max-width:767px)
+{
+  .site-footer
+  {
+    padding-bottom:0
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+    text-align:center
+  }
+}
+.social-icons
+{
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+}
+.social-icons li
+{
+  display:inline-block;
+  margin-bottom:4px
+}
+.social-icons li.title
+{
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+}
+.social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+}
+.social-icons a:active,.social-icons a:focus,.social-icons a:hover
+{
+  color:#fff;
+  background-color:#29aafe
+}
+.social-icons.size-sm a
+{
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+}
+.social-icons a.facebook:hover
+{
+  background-color:#3b5998
+}
+.social-icons a.twitter:hover
+{
+  background-color:#00aced
+}
+.social-icons a.linkedin:hover
+{
+  background-color:#007bb6
+}
+.social-icons a.dribbble:hover
+{
+  background-color:#ea4c89
+}
+@media (max-width:767px)
+{
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
+}
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-container {
+  max-width: 900px; /* Increase max-width for larger screens */
+  margin: 0 auto;
+  padding: 30px; /* Increase padding for better spacing */
+  border-radius: 10px;
+}
+h2 {
+  font-size: 28px; /* Increase font size for headings */
+  margin-bottom: 20px; /* Increase margin-bottom for better spacing */
+  color: #000000 !important; /* Black color */
+}
+.about-journal{
+  color: black;
+}
+
+p {
+  font-size: 18px; /* Increase font size for paragraphs */
+  line-height: 1.6;
+}
+
+
+/* Add responsive styles here */
+@media screen and (max-width: 768px) {
+  .about-container {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  h2 {
+    font-size: 24px; /* Decrease font size for headings on smaller screens */
+  }
+
+  p {
+    font-size: 16px; /* Decrease font size for paragraphs on smaller screens */
+  }
+}
+  </style>
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav">
+      <div>
+        <img class="logo" src="/Images/Logo/inser_logo-4.png" alt="" width="70px" height="60px">
+      </div>
+      <div class="list-main">
+        <ul class="list">
+          <a class="list-items" href="{% url 'home2' %}">Home</a>
+          <a class="list-items" href="{% url 'about' %}">About Us</a>
+          <a class="list-items" href="">Service</a>
+          <a class="list-items" href="">Subscribe</a>
+          <a class="list-items" href="{% url 'contact' %}">Contact Us</a>
+        </ul>
+      </div>
+      <div class="list">
+        <a class="nav-button-1" href="{% url 'login' %}">Login</a>
+        <a class="nav-button-2" href="{% url 'signup' %}">Signup</a>
+        <div class="nav-button-3" onclick="function_1()">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="nav-2" id="side-menu-1" >
+      <div>
+        <ul class="list-2">
+          <a class="list-items" href="{% url 'home2' %}">Home</a>
+          <a class="list-items" href="{% url 'about' %}">About Us</a>
+          <a class="list-items" href="">Service</a>
+          <a class="list-items" href="">Subscribe</a>
+          <a class="list-items" href="{% url 'contact' %}">Contact Us</a>
+        </ul>
+        <ul class="list-3">
+          <li class="list-3-items" href="{% url 'login' %}">Login</li>
+          <li class="list-4-items" href="{% url 'signup' %}">Signup</li>
+          <li class="list-5-items" onclick="function_2()"><i class="fa-solid fa-angle-up"></i></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <section class="banner">
+      <div class="banner-content-1">
+        <img class="logo-2" src="Images\Logo\inser_logo.png" alt="" width="170px" height="160px">
+        <h2 class="banner-title">International Journal for Science and Engineering Research</h2>
+    </div>
+  </section>
+
+  <section>
+    <div class="sub-header">
+      <ul class="sub-header-list">
+        <li class="sub-header-items"><a class="sub-header-items" href="{% url 'about' %}">About Inser</a></li>
+        <li class="sub-header-items"><a class="sub-header-items" href="{% url 'scope' %}">Scope</a></li>
+        <li class="sub-header-items"><a class="sub-header-items" href="{% url 'author' %}">Author Guidelines</a></li>
+        <li class="sub-header-items"><a class="sub-header-items" href="{% url 'indexing' %}">Indexing and Abstracting</a></li>
+        <li class="sub-header-items"><a class="sub-header-items" href="{% url 'edit' %}">Editorial Board</a></li>
+      </ul>
+      <div class="nav-button-3" onclick="function_3()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+
+    <nav class="sub-1-nav" id="side-menu-2" >
+      <div>
+        <ul class="sub-1-lists">
+          <li class="sub-header-items"><a class="sub-header-items" href="{% url 'about' %}">About Inser</a></li>
+          <li class="sub-header-items"><a class="sub-header-items" href="{% url 'scope' %}">Scope</a></li>
+          <li class="sub-header-items"><a class="sub-header-items" href="{% url 'author' %}">Author Guidelines</a></li>
+          <li class="sub-header-items"><a class="sub-header-items" href="{% url 'indexing' %}">Indexing and Abstracting</a></li>
+          <li class="sub-header-items"><a class="sub-header-items" href="{% url 'edit' %}">Editorial Board</a></li>
+        </ul>
+        <ul class="list-3">
+          <li class="list-5-items" onclick="function_4()"><i class="fa-solid fa-angle-up"></i></li>
+        </ul>
+      </div>
+    </nav>
+  </section>
+
+
+  <div class="about-container">
+    <section class="about-journal">
+    <h2>Scope of the Journal</h2>
+    <br>
+    <p>INSER aims to publish the quality articles in research-based, review-based and innovative thoughts useful for society. The journal will receive articles in science, engineering and management-based articles which are under Life sciences, environmental sciences and all science related issues with technical solutions. And also it covers engineering technology under the field of civil engineering, mechanical engineering, nano technology, communicIation technologies, machine learning, algorithm solutions, networking technologies, database concepts, circuit design, power & energy systems, computational intelligence, Internet of Things, Solutions for industry challenges, microelectronics and smart computing but not limited to this.</p>
+    <br>
+    </section>
+    </div>
+
+
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="row-3">
+            <div>
+            <h6>About</h6>
+            <p class="text-justify">Indian Journal for Science and Engineering Research focuses on the research gap between the research and social needs of the common people. It brings the research ideas from both science and engineering students and researchers and makes those ideas better for global needs.</p>
+            </div>
+          <div class="col-xs-6">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+              <a class="list-items" href="{% url 'home' %}">Home</a>
+              <a class="list-items" href="{% url 'about' %}">About Us</a>
+              <a class="list-items" href="">Service</a>
+              <a class="list-items" href="">Subscribe</a>
+              <a class="list-items" href="{% url 'contact' %}">Contact Us</a>
+            </ul>
+          </div>
+  
+          <div class="col-xs-6">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+              <li class="sub-header-items"><a class="sub-header-items" href="{% url 'about' %}">About Inser</a></li>
+              <li class="sub-header-items"><a class="sub-header-items" href="{% url 'scope' %}">Scope</a></li>
+              <li class="sub-header-items"><a class="sub-header-items" href="{% url 'author' %}">Author Guidelines</a></li>
+              <li class="sub-header-items"><a class="sub-header-items" href="{% url 'indexing' %}">Indexing and Abstracting</a></li>
+              <li class="sub-header-items"><a class="sub-header-items" href="{% url 'edit' %}">Editorial Board</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+  
+      <div class="container">
+        <div class="row-copy">
+          <div>
+            <img class="logo" src="/Images/Logo/inser_logo-4.png" alt="" width="70px" height="60px">
+          </div>
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by 
+         <a href="#">Inser</a>.
+            </p>
+          </div>
+  
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+          </div>
+        </div>
+      </div>
+  </footer>
+</body>
+</html>
+
+

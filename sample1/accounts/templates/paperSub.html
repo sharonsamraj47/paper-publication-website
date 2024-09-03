@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Paper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Paper</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">Paper Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="user_name">Author Name</label>
+                <input type="text" class="form-control" id="user_name" name="user_name" required>
+            </div>
+            <div class="form-group">
+                <label for="domain">Paper Domain</label>
+                <select class="form-control" id="domain" name="domain" required>
+                    <option value="" disabled selected>Select a domain</option>
+                    <option value="Fullstack">Fullstack</option>
+                    <option value="AIML">AIML</option>
+                    <option value="Cybersecurity">Cybersecurity</option>
+                    <option value="Blockchain">Blockchain</option>
+                    <option value="VR/AR">VR/AR</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="file">Upload File</label>
+                <input type="file" class="form-control" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

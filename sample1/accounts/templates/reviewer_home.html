@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reviewer Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        nav {
+            background-color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        nav a button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+        }
+        th {
+            background-color: #e9ecef;
+        }
+        form button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        form button:hover {
+            background-color: #0056b3;
+        }
+        form select {
+            padding: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reviewer Home</h2>
+    <nav>
+        <a href="{% url 'home2' %}"><button>Home</button></a>
+        <a href="{% url 'logout' %}"><button>Logout</button></a>
+    </nav>
+    <table>
+        <thead>
+            <tr>
+                <th>Serial No.</th>
+                <th>Paper Title</th>
+                <th>Paper Author</th>
+                <th>Domain Name</th>
+                <th>Date</th>
+                <th>View</th>
+                <th>Accept/Reject</th>
+                <th>Comment on Paper</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for file in files %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ file.title }}</td>
+                    <td>{{ file.user.username }}</td>
+                    <td>{{ file.domain }}</td>
+                    <td>{{ file.uploaded_at|date:"Y-m-d" }}</td>
+                    <td><a href="{{ file.file.url }}" target="_blank">View PDF</a></td>
+                    <td>
+                        <form method="post" action="{% url 'reviewer_home' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="file_id" value="{{ file.id }}">
+                            <select name="action">
+                                <option value="accept">Accept</option>
+                                <option value="minor_review">Minor Review</option>
+                                <option value="major_review">Major Review</option>
+                                <option value="reject">Reject</option>
+                            </select>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'reviewer_comment' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="file_id" value="{{ file.id }}">
+                            <textarea name="comment" class="form-control">{{ file.reviewer_comment }}</textarea>
+                            <button type="submit" name="action" value="add_comment" class="btn btn-primary mt-2">Add Comment</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
